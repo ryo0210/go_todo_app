@@ -1,9 +1,7 @@
 # # リリース用のビルドを行うコンテナイメージを作成するステージ
 FROM golang:1.18.2-bullseye as deploy-builder
 
-
 WORKDIR /app
-
 
 COPY go.mod go.sum ./
 
