@@ -4,13 +4,13 @@
 DOCKER_TAG := latest
 build: ## Build docker image to deploy
 	docker build -t ryo0210/gotodo:${DOCKER_TAG} \
-			--target deploy ./
+		--target deploy ./
 
-build-local: ## Build docker image to loacal development
+build-local: ## Build docker image to local development
 	docker compose build --no-cache
 
 up: ## Do docker compose up with hot reload
-		docker compose up -d
+	docker compose up -d
 
 down: ## Do docker compose down
 	docker compose down
@@ -19,12 +19,18 @@ logs: ## Tail docker compose logs
 	docker compose logs -f
 
 ps: ## Check container status
+	docker compose ps
+
+test: ## Execute tests
 	go test -race -shuffle=on ./...
 
 dry-migrate: ## Try migration
 	mysqldef -u todo -p todo -h 127.0.0.1 -P 33306 todo --dry-run < ./_tools/mysql/schema.sql
 
-migrate: ## Generate codes
+migrate:  ## Execute migration
+	mysqldef -u todo -p todo -h 127.0.0.1 -P 33306 todo < ./_tools/mysql/schema.sql
+
+generate: ## Generate codes
 	go generate ./...
 
 help: ## Show options
