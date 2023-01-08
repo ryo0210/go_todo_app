@@ -59,7 +59,6 @@ func prepareTasks(ctx context.Context, t *testing.T, con Execer) entity.Tasks {
 		VALUES
 			(?,?,?,?),
 			(?,?,?,?),
-			(?,?,?,?),
 			(?,?,?,?);`,
 		wants[0].Title, wants[0].Status, wants[0].Created, wants[0].Modified,
 		wants[1].Title, wants[1].Status, wants[1].Created, wants[1].Modified,
