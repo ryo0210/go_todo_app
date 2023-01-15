@@ -130,4 +130,3 @@ func TestRepository_AddTask(t *testing.T) {
 		t.Errorf("want no error, but got %v", err)
 	}
 }
-curl -XPOST -H "Authorization: Bearer $TODO_TOKEN" localhost:18000/tasks -d @./handler/testdata/add_task/ok_req.json.golden
