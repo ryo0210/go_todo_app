@@ -19,6 +19,6 @@ CREATE TABLE `task`
     `modified` DATETIME(6) NOT NULL COMMENT 'レコード修正日時',
     PRIMARY KEY (`id`),
     CONSTRAINT `fk_user_id`
-        FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+        FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
             ON DELETE RESTRICT ON UPDATE RESTRICT
 ) Engine=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='タスク';
